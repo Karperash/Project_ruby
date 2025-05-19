@@ -1,0 +1,295 @@
+// app/assets/stylesheets/application.sass
+
+// Импорты
+@import "bootstrap"
+@import "font-awesome"
+
+// ========================
+// Переменные
+// ========================
+$bg-pale-pink:     #ffeef4
+$bg-pale-pink-d05: lighten($bg-pale-pink, 5%)
+$text-dark:        #000000
+$text-light:       #ffffff
+$border-pink:      #ff69b4
+$border-light:     #e0e0e0
+$accent-pink:      #ff69b4
+$accent-pink-d10:  darken($accent-pink, 10%)
+
+// ========================
+// Обход Bootstrap-классов
+// ========================
+.card.bg-dark
+  background-color: $accent-pink !important
+
+.card.text-light,
+.card.bg-dark.text-light
+  color: $text-dark !important
+
+// ========================
+// Base
+// ========================
+html, body
+  margin: 0
+  padding: 0
+  background: $bg-pale-pink
+  color: $text-dark
+  font-family: "Segoe UI", sans-serif
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+
+.container
+  max-width: 1200px
+  margin: 0 auto
+  padding: 0 15px
+  flex: 1
+
+// ========================
+// Header (left vertical menu)
+// ========================
+header
+  position: fixed
+  top: 0
+  left: 0
+  width: 200px
+  height: 100vh
+  background: $bg-pale-pink-d05
+  color: $text-dark
+  border-right: 3px solid $border-pink
+  padding: 1rem 0
+  box-shadow: 1px 0 4px rgba(0,0,0,0.1)
+  z-index: 1000
+
+  .container
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 1rem
+    padding: 0
+
+    .logo
+      font-size: 1.25rem
+      font-weight: bold
+      color: $text-dark
+      text-decoration: none
+
+  nav
+    ul
+      display: flex
+      flex-direction: column
+      gap: 1rem
+      margin: 2rem 0 0 0
+      padding: 0
+      list-style: none
+
+      li a
+        background: $accent-pink
+        color: $text-light
+        text-decoration: none
+        padding: 0.5rem 1rem
+        border-radius: 4px
+        white-space: nowrap
+        transition: background 0.2s
+
+        &:hover
+          background: $accent-pink-d10
+
+// Отступ для основного контента
+main.container
+  margin-left: 200px
+  padding: 1rem 0
+
+// ========================
+// Центрированная карточка с картинкой
+// ========================
+.card
+  background: #ececec
+  border: 1px solid $border-light
+  border-radius: 6px
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1)
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  margin: 2rem auto
+  width: 90%
+  max-width: 600px
+  padding: 0
+
+.image-container
+  width: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  background: #ffffff
+  padding: 1rem
+  border-bottom: 1px solid $border-light
+
+.scalable-image
+  max-width: 100%
+  max-height: 70vh
+  object-fit: contain
+  border-radius: 4px
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05)
+
+// ========================
+// Кнопка выбора темы
+// ========================
+.choose-theme-btn,
+.btn-theme-select
+  background: $accent-pink
+  color: $text-light
+  border: none
+  padding: 0.75rem 1.5rem
+  font-size: 1rem
+  border-radius: 4px
+  cursor: pointer
+  transition: background 0.2s
+
+  &:hover
+    background: $accent-pink-d10
+
+// ========================
+// Buttons & controls
+// ========================
+.btn-primary,
+.img-left-side,
+.img-right-side
+  background-color: $accent-pink
+  border: 1px solid $accent-pink
+  color: $text-light
+  padding: 0.5rem 1rem
+  border-radius: 4px
+  text-decoration: none
+  transition: background 0.2s, border-color 0.2s
+
+  &:hover
+    background-color: $accent-pink-d10
+    border-color: $accent-pink-d10
+
+.rating-container
+  width: 100%
+  padding: 0 1rem
+
+.form-range
+  width: 100%
+  height: 10px
+  background: $border-light
+  border-radius: 5px
+  -webkit-appearance: none
+  box-shadow: inset 0 0 5px rgba(30,144,255,0.5)
+
+  &::-webkit-slider-thumb
+    -webkit-appearance: none
+    width: 20px
+    height: 20px
+    background: $accent-pink
+    border: 2px solid rgba(30,144,255,0.8)
+    border-radius: 50%
+    cursor: pointer
+    transition: background 0.2s, border-color 0.2s
+
+    &:hover
+      background: $accent-pink-d10
+      border-color: rgba(30,144,255,1)
+
+  &::-moz-range-thumb
+    width: 20px
+    height: 20px
+    background: $accent-pink
+    border: 2px solid rgba(30,144,255,0.8)
+    border-radius: 50%
+    cursor: pointer
+    transition: background 0.2s, border-color 0.2s
+
+    &:hover
+      background: $accent-pink-d10
+      border-color: rgba(30,144,255,1)// ========================
+// Forms & profiles
+// ========================
+.auth-form,
+.profile-card,
+.user-form
+  background: #ffffff
+  padding: 1.5rem
+  border-radius: 8px
+  border: 1px solid $border-light
+  box-shadow: 0 0 10px rgba(0,0,0,0.05)
+  margin: 1rem 0
+
+.auth-form .form-label,
+.user-form .form-label
+  color: $text-dark
+  font-weight: bold
+
+.auth-form .form-control
+  background: #ffffff
+  border: 1px solid $accent-pink
+
+  &:focus
+    border-color: $accent-pink
+    box-shadow: 0 0 5px rgba($accent-pink, 0.3)
+
+// ========================
+// Footer (slim)
+// ========================
+footer
+  width: 100%
+  background: $bg-pale-pink-d05
+  color: $text-dark
+  border-top: 3px solid $border-pink
+  padding: 0.5rem 1rem
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.1)
+  margin-top: auto
+
+  .container
+    display: flex
+    justify-content: center
+    align-items: center
+    gap: 2rem
+    flex-wrap: wrap
+
+  p
+    margin: 0
+    font-size: 0.9rem
+
+  .footer-links
+    display: flex
+    gap: 1rem
+
+    a
+      color: $text-dark
+      text-decoration: none
+      transition: opacity 0.2s
+
+      &:hover
+        opacity: 0.7
+
+// ========================
+// Override modal window style
+// ========================
+.modal-content.bg-dark
+  background: #e0f7fa !important  // бледно-голубой фон
+  color: $text-dark !important     // чёрный текст
+
+.modal-content.bg-dark .modal-header,
+.modal-content.bg-dark .modal-body,
+.modal-content.bg-dark .modal-footer
+  color: $text-dark !important
+
+// ========================
+// Responsive tweaks
+// ========================
+@media (max-width: 768px)
+  .card
+    margin: 1rem
+  .scalable-image
+    max-height: 50vh
+
+@media (max-width: 576px)
+  .card
+    width: 100%
+    margin: 1rem
+  .scalable-image
+    max-height: 40vh

@@ -1,0 +1,51 @@
+.container.my-4
+  .row.mb-4
+    .col-12.text-center
+      = render 'button_theme_select'
+
+.container.my-4
+  .d-flex.justify-content-center
+    .card.bg-dark.text-light(
+      data-theme-id=@image_data[:theme_id]
+      data-current-index=@image_data[:index]
+      data-total-images=@image_data[:images_arr_size]
+      data-image-id=@image_data[:id]
+    )
+      .card-header.text-center.py-3
+        h2.up-theme.mb-0 = @image_data[:theme] == "Выберите тему" ? t('work.index.select_theme') : @image_data[:theme]
+      .card-body.p-0
+        .d-flex.align-items-center
+          .me-3
+            button.nav-link.img-left-side[data-action="prev" class="hidden-initially"]
+              i.fas.fa-chevron-left.fa-2x
+          .image-container
+            - if @image_data.present?
+              = image_tag "pictures/#{@image_data[:file]}", class: 'scalable-image'
+            - else
+              = image_tag 'pictures/placeholder.jpg', class: 'scalable-image'
+          .ms-3
+            button.nav-link.img-right-side[data-action="next" class="hidden-initially"]
+              i.fas.fa-chevron-right.fa-2x
+      .card-footer.text-center.mt-3[class="hidden-initially"]
+        h3.up = @image_data[:name]
+        .rating-container.mt-3
+          label for="rating-slider" = t('work.index.rate_image')
+          input#rating-slider[
+            type="range" min="0" max="100"
+            value=@image_data[:user_score]
+            class="form-range"
+          ]
+          p.rating-info
+            = t('work.index.your_rating')
+            span#current-rating = @image_data[:user_score]
+            |  |
+            = t('work.index.average_rating')
+            span#average-rating = @image_data[:ave_value]
+
+.modal.fade#themeModal
+  .modal-dialog
+    .modal-content.bg-dark.text-light
+      .modal-header.border-0
+        h5.modal-title = t('work.index.modal_title')
+        button.btn-close.btn-close-white(type="button" data-bs-dismiss="modal")
+      .modal-body

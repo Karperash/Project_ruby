@@ -1,0 +1,30 @@
+en:
+  header:
+    home: "Home"
+    contacts: "Contacts"
+    help: "Help"
+    best: "The best drawing"
+    users: "Users"
+    images: "Images"
+    themes: "Themes"
+    sign_in: "Sign in"
+    sign_up: "Sign up"
+    language: "English"
+    switch_language: "Switch to Russian"
+  work:
+    index:
+      select_theme: "Select Theme"
+      rate_image: "Rate the image:"
+      your_rating: "Your rating:"
+      average_rating: "Average rating:"
+      modal_title: "Select Theme"
+      select_theme_button: "Select Theme"
+      select_theme_prompt: "Select a theme"
+  footer:
+    about_us: "About Us"
+  best_images:
+    index:
+      title: "Best Images by Themes"
+      average_rating: "Average rating: "
+      no_images: "No images in theme"
+      no_ratings: "No ratings"
